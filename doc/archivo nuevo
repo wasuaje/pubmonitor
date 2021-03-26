@@ -1,0 +1,109 @@
+***Monitoring***
+	Prensa: Escaneo de cada pagina de cada medio (periodico, revista,etc) contratada o solicitada
+		Todo a un solo pote para hacerlo rapido (la informacion de 1ra mano es importante)
+		luego script para leer el pote y segun fecha enviada al script + nombre del archivo
+		ordenar todo en la estructura de directorio que sigue
+	RadioTV: Se salva las transmiciones en clips de 30 min.
+	Internet: se salva el home completo como jpg y cada pagina o seccion por separado
+
+Guardado estructurado
+mediaroot
+	sourceid(id de peridico,emisora,revista)(0000001, 00000002, 00000003)
+		año(YYYY)	
+			mes(MM)
+				dia(DD)
+					pg1.jpg
+					pg2.jpg
+					pgn.jpg	
+				 	-------|
+					000000-003000.mp3|avi|mpg etc (HHMMSS)
+					003001-010000.mp3|avi|mpg etc (HHMMSS)
+					
+Se lee el mediaroot segun requerimiento de usuario (elegir medio y fecha de a procesar)
+Se presenta pagina por pagina | cuadro a cuadro | segundo a segundo
+	Radio y tv: Debajo de cada cuadro busqueda asistida para nombrar: programa, spot (buscarlo de la base de datos), canal,medio, etc
+	Prensa:     Se presenta imagen de la pagina, al seleccionar rectangulo de seleccion ventana para guardar: spot,personaje,seccion del diario o revista
+Se inserta en BBDD
+	Para ambos el archivo de audio/video/img donde se encuentra
+	Radio y tv: cada subrango de horafecha, con su idprograma|spot etc
+	Prensa: cada rectangulo, con su id, seccion,personaje,articulo, subject,tamaño,spot,etc.
+
+A la hora de reportear:
+	Consultar BBDD traer todo a un dict en caso de audio/video a medida que rueda video se busca coinicdencia en dict y se traen valores
+	dict['HHMMSS']=('nombre programa spot','demas valores de texto','necesarios')
+	En prensa se trae
+	dict['idcorrespondiente al rectangulo']=('nombre programa spot','demas valores de texto','necesarios')
+	Reportes por spot y ubicacion (cuantas en portada, cuantas en secciones, desplegados, centimetraje, color o b&n)	
+
+Ojo con "home telefonic surveys program"
+como el de intelimedia que hice con miguel
+
+
+Prensa Escrita:
+	Periodicos
+		tipos
+			General
+			Politico
+			Semanario
+			Deportivo
+		frecuencia
+			Diarios
+			Semanales
+			Mensuales		
+	Revistas
+		tipo
+			Moda
+			Farandula
+			Deportes
+			Carros
+			Tech		
+		Frecuencia
+			Diaria
+			Mensual
+V 2.0
+  ||
+  ||
+  \/
+Radio
+	AM
+	FM
+	Internet
+TV
+	Abierta
+	Cable
+			
+	
+
+
+******************************************** SE PUEDE OMITIR PARA GUARDAR DIRECTO A BBDD (DELAYED PARA MEJORA VELOCIDAD)************
+Guardar data para cada archivo (cpickle python)
+	pg1.data
+	000000-003000.data
+Formato de Data (dict en python luego serializar con cpickle)
+	data = {} 
+	data['source_type_id'] = 1		#para saber parsear si es radio tv o prensa saber como leer source_data
+	data['source_file_name'] = 'pg1.jpg|mpg|mp3'	#para asegurarse que se trabaja lo correcto
+	data['date']=YYYYMMAA
+	data['sourceid'] = 256
+			segundo|minutodesde-hasta, nombre
+	data['source_data'] = ('000000-000050',	'noticiero venevision'),
+			      ('000051-000130',	'maltin litro y medio'),
+			      				.
+			      				.
+			      				.
+	---------------------------------------------------------------------
+				rectangulo, 	 nombre, 				##definir como va a ser 
+	data['source_data'] = ((123,345,222,603), 'banesco debito', tamañopublicidad) ,
+			      ((123,345,222,603), 'movilnet inalambrico', tamañopublicidad),
+			      ((123,345,222,603), 'articulo de opinion', 'tema electrico',tamaño),
+			      ((123,345,222,603), 'noticia', 'ley arrendamientos',tamaño),
+			      ((123,345,222,603), 'personaje',tamaño),
+			      				.
+			      				.
+			      				.
+***************************************************************************************************************************************
+
+
+
+
+

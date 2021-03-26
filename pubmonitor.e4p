@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE Project SYSTEM "Project-4.6.dtd">
+<!-- eric4 project file for project pubmonitor -->
+<!-- Saved: 2011-05-20, 17:43:00 -->
+<!-- Copyright (C) 2011 wuelfhis asuaje, wasuaje@hotmail.com -->
+<Project version="4.6">
+  <Language></Language>
+  <ProgLanguage mixed="0">Python</ProgLanguage>
+  <ProjectType>Qt4</ProjectType>
+  <Description></Description>
+  <Version>0.1</Version>
+  <Author>wuelfhis asuaje</Author>
+  <Email>wasuaje@hotmail.com</Email>
+  <Sources>
+    <Source>pubmonitor.py</Source>
+    <Source>__init__.py</Source>
+    <Source>ui/Ui_prueba.py</Source>
+    <Source>menuactions.py</Source>
+    <Source>ui/__init__.py</Source>
+    <Source>ui/Ui_confirm.py</Source>
+    <Source>todos.py</Source>
+    <Source>ui/Ui_save_rect.py</Source>
+    <Source>save_rect.py</Source>
+  </Sources>
+  <Forms>
+    <Form>ui/prueba.ui</Form>
+    <Form>ui/confirm.ui</Form>
+    <Form>ui/save_rect.ui</Form>
+  </Forms>
+  <Translations>
+  </Translations>
+  <Resources>
+  </Resources>
+  <Interfaces>
+  </Interfaces>
+  <Others>
+    <Other>ui/confirm</Other>
+  </Others>
+  <MainScript>pubmonitor.py</MainScript>
+  <Vcs>
+    <VcsType>None</VcsType>
+  </Vcs>
+  <FiletypeAssociations>
+    <FiletypeAssociation pattern="*.ui" type="FORMS" />
+    <FiletypeAssociation pattern="*.idl" type="INTERFACES" />
+    <FiletypeAssociation pattern="*.qm" type="TRANSLATIONS" />
+    <FiletypeAssociation pattern="*.ptl" type="SOURCES" />
+    <FiletypeAssociation pattern="*.pyw" type="SOURCES" />
+    <FiletypeAssociation pattern="*.ui.h" type="FORMS" />
+    <FiletypeAssociation pattern="*.ts" type="TRANSLATIONS" />
+    <FiletypeAssociation pattern="*.py" type="SOURCES" />
+    <FiletypeAssociation pattern="*.qrc" type="RESOURCES" />
+  </FiletypeAssociations>
+</Project>
